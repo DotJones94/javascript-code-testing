@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Closures</title>
+    </head>
+    <body>
+        <h1>Testing Closures</h1>
+    </body>
+    <script>
+        function scoping(){
+            var name = 'Kelly';
+            let surname = 'Jones'
+            function getName(){
+                console.log(name + ' ' + surname) // You are able to get the name variable even if it was not passed into the function.
+            }
+            getName();
+        }
+
+        // function getClosureVars(){
+        //     console.log(name + ' ' + surname) //because this is out of scope, the variables cannot be called
+        // }
+
+        scoping();
+
+        function scopeWithVar(){
+            if (Math.random() > 0.5) {
+                var x = 1;
+            } else {
+                var x = 2;
+            }
+            console.log(x); //With using var, scope no longer is defined, and you will be able to grab the var from outside blocks
+        }
+        scopeWithVar();
+
+        function scopeWithLet(){
+            if (Math.random() > 0.5) {
+                let x = 1;
+            } else {
+                let x = 2;
+            }
+            console.log(x); //Let will cause an error because it has now defined scope 
+        }
+        scopeWithLet();
+
+    </script>
+</html>
